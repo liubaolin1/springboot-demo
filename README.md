@@ -6,5 +6,8 @@
 
 ####集成mybatis,mysql
 * swagger2 入口：http://localhost:8999/swagger-ui.html
-* druid 监控入口：http://localhost:8999/druid/login.html   账号密码：admin
+* druid 监控入口：http://localhost:8999/druid/login.html 账号密码：admin
 * 控制台会输出sql
+
+####自动生成代码工具
+* generatorConfig.xml 中配置
