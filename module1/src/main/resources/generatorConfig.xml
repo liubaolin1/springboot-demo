@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!--<classPathEntry-->
+            <!--location="/Users/lts/.m2/repository/Mysql/mysql-connector-java/5.1.44/mysql-connector-java-5.1.44.jar"/>-->
+    <context id="my" targetRuntime="MyBatis3">
+        <!-- <commentGenerator>
+            <property name="suppressDate" value="false" />
+            <property name="suppressAllComments" value="true" />
+        </commentGenerator> -->
+
+        <!--链接数据库操作-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://192.168.3.6:3306/biz?useUnicode=true&amp;characterEncoding=utf-8"
+                        userId="kernelroot"
+                        password="Root1234"/>
+        <!--生成实体-->
+        <javaModelGenerator targetPackage="com.example.module.entity"
+                            targetProject="src/main/java">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+        <!--生成xml-->
+        <sqlMapGenerator targetPackage="com.example.module.mapper"
+                         targetProject="src/main/resources">
+        </sqlMapGenerator>
+        <!--生成dao-->
+        <javaClientGenerator targetPackage="com.example.module.mapper"
+                             targetProject="src/main/java" type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!--<table tableName="%">-->
+            <!--&lt;!&ndash;mysql 配置&ndash;&gt;-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>            -->
+        <!--</table>-->
+
+        <table tableName="bid_doc_download" domainObjectName="BidDocDownload"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table>
+    </context>
+</generatorConfiguration>
