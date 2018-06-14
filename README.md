@@ -3,6 +3,7 @@
 * appmodule 项目主启动入口模块
 * module1 模块1 有一个链接数据库的查询方法
 * module2 模块2 空模块
+* utils 自己封装的一些工具类
 
 ####集成mybatis,mysql
 * swagger2 入口：http://localhost:8999/swagger-ui.html
