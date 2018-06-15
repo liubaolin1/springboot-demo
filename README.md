@@ -15,4 +15,5 @@
 
 **更新日志**
 2018-06-15 09：21
-新增加一个定时任务 Timetask类 
+主模块：新增加一个定时任务 Timetask类 去掉注解注释启动项目启动定时任务 
+module1模块：新增利用poi导出excel功能 浏览器输入 http://localhost:8999/method3 直接下载 
