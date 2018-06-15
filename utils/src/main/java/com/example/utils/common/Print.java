@@ -13,7 +13,7 @@ import java.util.Date;
 public class Print {
     public static void print(Object... object){
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+":");
-        System.out.print("---->");
+        System.out.print("====>");
         for(Object o:object){
             System.out.print(o+" ");
         }
@@ -22,8 +22,32 @@ public class Print {
     public  static void println(Object... object){
         System.out.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date())+":");
         for(Object o:object){
-            System.out.println("---->"+o);
+            System.out.println("====>"+o);
         }
+    }
+
+    /**
+     * 如果要使用这两个方法
+     * 请先了解 System.out.print 和 System.err.print 输出的区别
+     * @param object
+     */
+    public static void printRed(Object... object){
+        System.err.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:ddd").format(new Date())+":");
+        System.err.print("====>");
+        for(Object o:object){
+            System.err.print(o+" ");
+        }
+        System.out.println();
+    }
+    public  static void printlnRed(Object... object){
+        System.err.println(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss:ddd").format(new Date())+":");
+        for(Object o:object){
+            System.err.println("====>"+o);
+        }
+    }
+
+    public static void printRun(){
+        System.err.println("spring-boot START ");
     }
 
     /**
