@@ -4,8 +4,10 @@ package com.example.module;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.ServletComponentScan;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import static com.example.utils.common.Print.*;
 
@@ -15,13 +17,14 @@ import static com.example.utils.common.Print.*;
  */
 @Configuration
 /**
- * 控制过滤器器和拦截器
- */
-@ServletComponentScan
-/**
  * 定时任务用
  */
 @EnableScheduling
+/**
+ * 控制过滤器器和拦截器 控制加载bean等
+ *
+ */
+@ComponentScan(basePackages={"com.example.utils","com.example.module.config","com.example.module"})
 public class AppmoduleApplication {
 
 	public static void main(String[] args) {

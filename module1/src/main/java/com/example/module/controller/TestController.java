@@ -4,6 +4,7 @@ import com.example.module.excel.ExcelConstants;
 import com.example.module.excel.ExportExcelUtil;
 import com.example.module.excel.Person;
 import com.example.module.service.BidDocDownloadService;
+import com.example.utils.redis.RedisBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -16,6 +17,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
+
+import static com.example.utils.common.Print.println;
 
 /**
  * @Description:
@@ -25,13 +29,19 @@ import java.util.List;
 @RestController
 @Api(value = "TestController",description = "测试类")
 public class TestController {
+
+    private static Logger logger = Logger.getLogger("TestController");
     @Autowired
     private BidDocDownloadService bidDocDownloadService;
+    @Autowired
+    private RedisBean redisBean;
 
     @ApiOperation(notes = "测试方法1",value = "测试方法1")
     @RequestMapping(value = "/method1",method = RequestMethod.GET)
     public Object method1(Integer param){
-
+        logger.info("测试打印日志");
+        Object o = redisBean.get("dict:T1000001");
+        println(o);
         return "hello liubao";
     }
 
