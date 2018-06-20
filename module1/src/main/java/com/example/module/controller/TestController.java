@@ -4,6 +4,7 @@ import com.example.module.excel.ExcelConstants;
 import com.example.module.excel.ExportExcelUtil;
 import com.example.module.excel.Person;
 import com.example.module.service.BidDocDownloadService;
+import com.example.utils.common.ClientUtil;
 import com.example.utils.redis.RedisBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -40,8 +42,16 @@ public class TestController {
     @RequestMapping(value = "/method1",method = RequestMethod.GET)
     public Object method1(Integer param){
         logger.info("测试打印日志");
+        /**
+         * 获取reids中的数据
+         */
         Object o = redisBean.get("dict:T1000001");
         println(o);
+        /**
+         * 获取ip地址
+         */
+        String clientIp = ClientUtil.getClientIp(request);
+        println(clientIp);
         return "hello liubao";
     }
 
@@ -53,6 +63,8 @@ public class TestController {
 
     @Autowired
     private HttpServletResponse response;
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * excel导出功能
