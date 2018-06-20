@@ -20,3 +20,4 @@
 + module1模块：新增利用poi导出excel功能 浏览器输入 http://localhost:8999/method3 直接下载 
 #### 2018-06-20 09：18 ####
 + 引入redis 新增reids工具类
++ 在StringUtils中引入一些校验方法

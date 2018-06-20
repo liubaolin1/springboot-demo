@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.*;
 
 /**
- * @Description:
+ * @Description: 实体bean和自定义类转换
  * @author: liubao
  * @Date: Created in 2018/6/20 8:37
  */

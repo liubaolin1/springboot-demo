@@ -3,7 +3,7 @@ package com.example.utils.common;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Description:
+ * @Description: 获取客户端ip地址
  * @author: liubao
  * @Date: Created in 2018/6/20 9:29
  */
