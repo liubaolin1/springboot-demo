@@ -11,7 +11,7 @@
 * 控制台会输出sql
 
 ####自动生成代码工具
-* generatorConfig.xml 中配置
+generatorConfig.xml 中配置
 ###**问题**
 这种模块化的好像不好打包,sei能指点我一下
 ###**更新日志**
