@@ -12,7 +12,9 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,7 +26,7 @@ import java.util.logging.Logger;
 import static com.example.utils.common.Print.println;
 
 /**
- * @Description:
+ * @Description: 对外接口
  * @author: liubao
  * @Date: Created in 2018/6/14 14:34
  */
@@ -38,6 +40,12 @@ public class TestController {
     @Autowired
     private RedisBean redisBean;
 
+    /**
+     * 查询redis
+     * 返回死数据
+     * @param param
+     * @return
+     */
     @ApiOperation(notes = "测试方法1",value = "测试方法1")
     @RequestMapping(value = "/method1",method = RequestMethod.GET)
     public Object method1(Integer param){
@@ -55,6 +63,11 @@ public class TestController {
         return "hello liubao";
     }
 
+    /**
+     * 查询mysql
+     * @param param
+     * @return
+     */
     @ApiOperation(notes = "测试方法2",value = "测试方法2")
     @RequestMapping(value = "/method2",method = RequestMethod.GET)
     public Object method2(Integer param){
@@ -121,4 +134,18 @@ public class TestController {
         arrayList.add(p4);
         return arrayList;
     }
+
+    /**
+     * 上传文件
+     * @param file
+     * @return
+     */
+    @ApiOperation(notes = "测试方法3上传",value = "测试方法3上传")
+    @RequestMapping(value = "/method333",method = RequestMethod.POST)
+    public Object method3(@RequestParam(value="file") MultipartFile file){
+        //暂时没有储存文件的数据库 先输出一下
+        println(file.getName(),file.getOriginalFilename(),file.getContentType());
+        return null;
+    }
+
 }
