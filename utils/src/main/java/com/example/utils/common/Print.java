@@ -46,6 +46,12 @@ public class Print {
         }
     }
 
+    public  static void printlnNoneTime(Object... object){
+        for(Object o:object){
+            System.out.println("====>"+o);
+        }
+    }
+
     public static void printRun(){
         System.err.println("spring-boot START ");
     }
