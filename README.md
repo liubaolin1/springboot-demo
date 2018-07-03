@@ -7,11 +7,11 @@
 
 #### 集成mybatis,mysql ####
 + swagger2 入口：http://localhost:8999/swagger-ui.html
-+ ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/swagger2.jpg)
+ ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/swagger2.jpg)
 + druid 监控入口：http://localhost:8999/druid/login.html 账号密码：admin
-+ ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/druid.jpg)
-+ 控制台会输出sql
+ ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/druid.jpg)
 + druid 参考 https://blog.csdn.net/CoffeeAndIce/article/details/78707819
++ 控制台打印sql
 #### 自动生成代码工具 ####
 + generatorConfig.xml 中配置
 #### 问题 ####
@@ -29,3 +29,8 @@
 #### 2018-07-02  ####
 + 在mdule2模块中加入了自己的一些练习 
 + 主要写的是反射机制
+
+#### 2018-07-03  ####
++ 今天发现druid的管理页面打不开了 找各种原因 后来发现主启动类中的 注解改动之后未测试是否有影响druid
++ 元组的使用方法
++ 设置多个配置文件，默认启用application-test.properties 这个配置文件主要是解决不同环境启用不同配置文件的问题 详见模块2
