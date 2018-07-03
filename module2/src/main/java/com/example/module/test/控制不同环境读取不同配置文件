@@ -1,0 +1,96 @@
+
+在主配置文件中加入
+spring.profiles.active=@env-profile@
+
+@env-profile@ 表示引用 一般是引用pom中的值
+
+其他配置文件命名规则
+application-{env-profile}.properties/yml
+例如：application-dev.properties
+
+
+
+如果是部署到服务器的话,我们正常打成jar包,发布是时候,采用:
+
+--spring.profiles.active=test或者pro 来控制加载哪个环境的配置,完整命令如下:
+
+java -jar xxxxx.jar --spring.profiles.active=test  表示加载测试环境的配置
+
+java -jar xxxxx.jar --spring.profiles.active=pro  表示加载生产环境的配置
+
+
+
+
+
+<profiles>
+		<profile>
+			<!-- 本地环境 -->
+			<id>local</id>
+			<properties>
+				<env-profile>local</env-profile>
+			</properties>
+			<!-- 默认激活本环境 -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<!--<dependencies>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>
+				</dependency>
+				<dependency>
+					<groupId>org.springframework.cloud</groupId>
+					<artifactId>spring-cloud-starter-stream-kafka</artifactId>
+				</dependency>
+			</dependencies>-->
+		</profile>
+		<profile>
+			<!-- 开发测试环境 -->
+			<id>dev</id>
+			<properties>
+				<env-profile>dev</env-profile>
+			</properties>
+			<!--<dependencies>-->
+				<!--<dependency>-->
+					<!--<groupId>org.springframework.cloud</groupId>-->
+					<!--<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>-->
+				<!--</dependency>-->
+				<!--<dependency>-->
+					<!--<groupId>org.springframework.cloud</groupId>-->
+					<!--<artifactId>spring-cloud-starter-stream-kafka</artifactId>-->
+				<!--</dependency>-->
+			<!--</dependencies>-->
+		</profile>
+		<profile>
+			<!-- 测试环境 -->
+			<id>test</id>
+			<properties>
+				<env-profile>test</env-profile>
+			</properties>
+
+			<!--<dependencies>-->
+				<!--<dependency>-->
+					<!--<groupId>org.springframework.cloud</groupId>-->
+					<!--<artifactId>spring-cloud-sleuth-zipkin-stream</artifactId>-->
+				<!--</dependency>-->
+				<!--<dependency>-->
+					<!--<groupId>org.springframework.cloud</groupId>-->
+					<!--<artifactId>spring-cloud-starter-stream-kafka</artifactId>-->
+				<!--</dependency>-->
+			<!--</dependencies>-->
+		</profile>
+		<profile>
+			<!-- 预生产环境 -->
+			<id>pre</id>
+			<properties>
+				<env-profile>pre</env-profile>
+			</properties>
+		</profile>
+		<profile>
+			<!-- 生产环境 -->
+			<id>prod</id>
+			<properties>
+				<env-profile>prod</env-profile>
+			</properties>
+		</profile>
+</profiles>

@@ -50,16 +50,7 @@ public class TestController {
     @RequestMapping(value = "/method1",method = RequestMethod.GET)
     public Object method1(Integer param){
         logger.info("测试打印日志");
-        /**
-         * 获取reids中的数据
-         */
-        Object o = redisBean.get("dict:T1000001");
-        println(o);
-        /**
-         * 获取ip地址
-         */
-        String clientIp = ClientUtil.getClientIp(request);
-        println(clientIp);
+
         return "hello liubao";
     }
 
@@ -71,6 +62,17 @@ public class TestController {
     @ApiOperation(notes = "测试方法2",value = "测试方法2")
     @RequestMapping(value = "/method2",method = RequestMethod.GET)
     public Object method2(Integer param){
+        /**
+         * 获取reids中的数据
+         */
+        Object o = redisBean.get("dict:T1000001");
+        println(o);
+        /**
+         * 获取ip地址
+         */
+        String clientIp = ClientUtil.getClientIp(request);
+        println(clientIp);
+
         return bidDocDownloadService.selectById(param);
     }
 

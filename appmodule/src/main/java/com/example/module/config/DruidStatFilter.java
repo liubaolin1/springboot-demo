@@ -1,6 +1,7 @@
 package com.example.module.config;
 
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.context.annotation.Configuration;
 
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.annotation.WebInitParam;

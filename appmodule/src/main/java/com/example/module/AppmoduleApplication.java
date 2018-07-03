@@ -21,10 +21,13 @@ import static com.example.utils.common.Print.*;
  */
 @EnableScheduling
 /**
- * 控制过滤器器和拦截器 控制加载bean等
- *
+ * druid用
  */
-@ComponentScan(basePackages={"com.example.utils","com.example.module.config","com.example.module"})
+@ServletComponentScan("com.example.module.config")
+/**
+ * swagger用
+ */
+@ComponentScan(basePackages={"com.example.utils","com.example.module"})
 public class AppmoduleApplication {
 
 	public static void main(String[] args) {
