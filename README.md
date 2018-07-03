@@ -6,9 +6,9 @@
 * utils 自己封装的一些工具类
 
 #### 集成mybatis,mysql ####
-+ swagger2 入口：http://localhost:8999/swagger-ui.html
++ swagger2 入口：http://localhost:9000/swagger-ui.html
  ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/swagger2.jpg)
-+ druid 监控入口：http://localhost:8999/druid/login.html 账号密码：admin
++ druid 监控入口：http://localhost:9000/druid/login.html 账号密码：admin
  ![image](https://github.com/liubaolin1/springboot-demo/blob/master/utils/src/main/java/com/example/utils/image/druid.jpg)
 + druid 参考 https://blog.csdn.net/CoffeeAndIce/article/details/78707819
 + 控制台打印sql
