@@ -19,7 +19,7 @@
 #### 更新日志 ####
 #### 2018-06-15 ####
 + 主模块：新增加一个定时任务 Timetask类 去掉注解注释启动项目启动定时任务 
-+ module1模块：新增利用poi导出excel功能 浏览器输入 http://localhost:8999/method3 直接下载 
++ module1模块：新增利用poi导出excel功能 浏览器输入 http://localhost:9000/method3 直接下载 
 #### 2018-06-20  ####
 + 引入redis 新增reids工具类
 + 在StringUtils中引入一些校验方法
