@@ -4,7 +4,9 @@ import com.example.module.excel.ExcelConstants;
 import com.example.module.excel.ExportExcelUtil;
 import com.example.module.excel.Person;
 import com.example.module.service.BidDocDownloadService;
+import com.example.utils.common.ActionResult;
 import com.example.utils.common.ClientUtil;
+import com.example.utils.common.ResultEnum;
 import com.example.utils.redis.RedisBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -41,21 +43,23 @@ public class TestController {
     private RedisBean redisBean;
 
     /**
-     * 查询redis
      * 返回死数据
      * @param param
      * @return
      */
     @ApiOperation(notes = "测试方法1",value = "测试方法1")
     @RequestMapping(value = "/method1",method = RequestMethod.GET)
-    public Object method1(Integer param){
+    public ActionResult<List<Person>> method1(Integer param){
         logger.info("测试打印日志");
-
-        return "hello liubao";
+        ActionResult<List<Person>> result
+                = new ActionResult<>(ResultEnum.OK.getCode(),
+                ResultEnum.OK.getMessage(),
+                getPersonList());
+        return result;
     }
 
     /**
-     * 查询mysql
+     * 查询mysql redis
      * @param param
      * @return
      */
@@ -83,6 +87,7 @@ public class TestController {
 
     /**
      * excel导出功能
+     * 在swagger2 中测试下载文件会出现乱码
      */
     @ApiOperation(notes = "下载excel",value = "下载excel")
     @RequestMapping(value = "/method3",method = RequestMethod.GET)
