@@ -31,6 +31,37 @@ public class StringUtils {
     }
 
     /**
+     * 引自
+     * org.apache.commons.lang3.StringUtils;
+     * @param str
+     * @return
+     */
+    public static String trim(String str) {
+        return str == null ? null : str.trim();
+    }
+
+    /**
+     * 引自
+     * org.apache.commons.lang3.StringUtils;
+     * @param cs
+     * @return
+     */
+    public static boolean isBlank(CharSequence cs) {
+        int strLen;
+        if (cs != null && (strLen = cs.length()) != 0) {
+            for(int i = 0; i < strLen; ++i) {
+                if (!Character.isWhitespace(cs.charAt(i))) {
+                    return false;
+                }
+            }
+
+            return true;
+        } else {
+            return true;
+        }
+    }
+
+    /**
      * 空串""
      */
     public final static String EMPTY_STR = "";

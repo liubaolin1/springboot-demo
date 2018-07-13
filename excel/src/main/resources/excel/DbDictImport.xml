@@ -1,0 +1,13 @@
+<Config startRow="2">
+	<fields>
+	    <!--<field name="id" required="true" type="int"/>-->
+	    <field name="dictCode" required="true" type="string"/>
+	    <field name="pcode" required="true" type="string"/>
+	    <field name="groupCode" type="string"/>
+	    <field name="dictName" required="true" type="string"/>
+	    <field name="levelNum" required="true" type="int"/>
+	    <field name="orderNum" required="true" type="int"/>
+	    <field name="path" required="true" type="string"/>
+	    <field name="isDeleted" required="true" type="int"/>
+	</fields>
+</Config>

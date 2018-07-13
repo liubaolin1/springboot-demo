@@ -1,7 +1,7 @@
 package com.example.module.controller;
 
-import com.example.module.excel.ExcelConstants;
-import com.example.module.excel.ExportExcelUtil;
+//import com.example.module.excel.ExcelConstants;
+//import com.example.module.excel.ExportExcelUtil;
 import com.example.module.excel.Person;
 import com.example.module.service.BidDocDownloadService;
 import com.example.utils.common.ActionResult;
@@ -10,7 +10,7 @@ import com.example.utils.common.ResultEnum;
 import com.example.utils.redis.RedisBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.OutputStream;
+//import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -85,45 +85,45 @@ public class TestController {
     @Autowired
     private HttpServletRequest request;
 
-    /**
-     * excel导出功能
-     * 在swagger2 中测试下载文件会出现乱码
-     */
-    @ApiOperation(notes = "下载excel",value = "下载excel")
-    @RequestMapping(value = "/method3",method = RequestMethod.GET)
-    public void downloadExcel(){
-        /**
-         * 下载的文件名称
-         */
-        String fileName = ExcelConstants.FILENAME+".xls";
-        /**
-         * Excel中sheet的名
-         */
-        String sheetName = ExcelConstants.SHEETNAME;
-        /**
-         * 表格抬头 这个顺序要和javaBean 中的字段 顺序一致
-         */
-        String[] headers = ExcelConstants.HEADERS;
-        /**
-         * 查询出一个list
-         */
-        List<Person> list=getPersonList();
-        /**
-         * 调用辅助类来进行excel生成
-         */
-        ExportExcelUtil<Person> excel = new ExportExcelUtil<Person>();
-        HSSFWorkbook wb=excel.exportExcel(sheetName, headers, list);
-        try {
-            ExportExcelUtil.setResponseHeader(response, fileName);
-            OutputStream os = response.getOutputStream();
-            wb.write(os);
-            os.flush();
-            os.close();
-        }catch (Exception e){
-            System.err.println("出错");
-            e.printStackTrace();
-        }
-    }
+//    /**
+//     * excel导出功能
+//     * 在swagger2 中测试下载文件会出现乱码
+//     */
+//    @ApiOperation(notes = "下载excel",value = "下载excel")
+//    @RequestMapping(value = "/method3",method = RequestMethod.GET)
+//    public void downloadExcel(){
+//        /**
+//         * 下载的文件名称
+//         */
+//        String fileName = ExcelConstants.FILENAME+".xls";
+//        /**
+//         * Excel中sheet的名
+//         */
+//        String sheetName = ExcelConstants.SHEETNAME;
+//        /**
+//         * 表格抬头 这个顺序要和javaBean 中的字段 顺序一致
+//         */
+//        String[] headers = ExcelConstants.HEADERS;
+//        /**
+//         * 查询出一个list
+//         */
+//        List<Person> list=getPersonList();
+//        /**
+//         * 调用辅助类来进行excel生成
+//         */
+//        ExportExcelUtil<Person> excel = new ExportExcelUtil<Person>();
+//        HSSFWorkbook wb=excel.exportExcel(sheetName, headers, list);
+//        try {
+//            ExportExcelUtil.setResponseHeader(response, fileName);
+//            OutputStream os = response.getOutputStream();
+//            wb.write(os);
+//            os.flush();
+//            os.close();
+//        }catch (Exception e){
+//            System.err.println("出错");
+//            e.printStackTrace();
+//        }
+//    }
 
     /**
      * 查询出了一个list

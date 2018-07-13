@@ -1,6 +1,6 @@
 package com.example.module.excel;
 
-import org.apache.poi.hssf.util.HSSFColor;
+//import org.apache.poi.hssf.util.HSSFColor;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -28,21 +28,21 @@ public class ExcelConstants {
      * 设置表格列宽
      */
     public static final short COLNUM = 25;
-    /**
-     * excel表头表格背景颜色
-     */
-    public static final short HEADCOLOR = HSSFColor.LIGHT_GREEN.index;
-    /**
-     * excel表头表格字体颜色
-     */
-    public static final short HEADFONTCOLOR = HSSFColor.VIOLET.index;
-    /**
-     * excel内容部分表格背景颜色
-     */
-    public static final short BODYCOLOR = HSSFColor.LIGHT_YELLOW.index;
-    /**
-     * excel内容部分字体颜色
-     */
-    public static final short BODYFONTCOLOR = HSSFColor.BLACK.index;
+//    /**
+//     * excel表头表格背景颜色
+//     */
+//    public static final short HEADCOLOR = HSSFColor.LIGHT_GREEN.index;
+//    /**
+//     * excel表头表格字体颜色
+//     */
+//    public static final short HEADFONTCOLOR = HSSFColor.VIOLET.index;
+//    /**
+//     * excel内容部分表格背景颜色
+//     */
+//    public static final short BODYCOLOR = HSSFColor.LIGHT_YELLOW.index;
+//    /**
+//     * excel内容部分字体颜色
+//     */
+//    public static final short BODYFONTCOLOR = HSSFColor.BLACK.index;
 
 }
