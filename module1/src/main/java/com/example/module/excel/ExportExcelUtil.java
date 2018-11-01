@@ -7,9 +7,7 @@
 //import java.lang.reflect.InvocationTargetException;
 //import java.lang.reflect.Method;
 //import java.text.SimpleDateFormat;
-//import java.util.Collection;
-//import java.util.Date;
-//import java.util.Iterator;
+//import java.util.*;
 //
 ///**
 // * 利用开源组件POI3.0.2动态导出EXCEL文档
@@ -52,7 +50,7 @@
 //     */
 //    @SuppressWarnings("unchecked")
 //    public HSSFWorkbook exportExcel(String title, String[] headers,
-//                                    Collection<T> dataset, String pattern) {
+//                                    List<LinkedHashMap> dataset, String pattern) {
 //        // 声明一个工作薄
 //        HSSFWorkbook workbook = new HSSFWorkbook();
 //        // 生成一个表格
@@ -107,74 +105,26 @@
 //            cell.setCellValue(text);
 //        }
 //        // 遍历集合数据，产生数据行
-//        Iterator<T> it = dataset.iterator();
+//        Iterator<LinkedHashMap> it = dataset.iterator();
 //        int index = 0;
 //        while (it.hasNext()) {
 //            index++;
 //
 //            row = sheet.createRow(index);
-//            T t = (T) it.next();
-//            // 利用反射，根据javabean属性的先后顺序，动态调用getXxx()方法得到属性值
-//            Field[] fields = t.getClass().getDeclaredFields();
-//            for (short i = 0; i < fields.length; i++) {
-//                HSSFCell cell = row.createCell(i);
+//            LinkedHashMap next = it.next();
+//            Iterator iterator = next.keySet().iterator();
+//            int index2 = 0;
+//            while(iterator.hasNext()){
+//                index2++;
+//                Object next1 = iterator.next();
+//                HSSFCell cell = row.createCell(index2);
 //                cell.setCellStyle(style2);
-//                Field field = fields[i];
-//                String fieldName = field.getName();
-//                String getMethodName = "get"
-//                        + fieldName.substring(0, 1).toUpperCase()
-//                        + fieldName.substring(1);
-//                try {
-//                    Class tCls = t.getClass();
-//                    Method getMethod = tCls.getMethod(getMethodName,
-//                            new Class[] {});
-//                    Object value = getMethod.invoke(t, new Object[] {});
-//                    // 判断值的类型后进行强制类型转换
-//                    String textValue = null;
-//                    if(value == null){
-//                        textValue = "";
-//                    }else if (value instanceof Boolean) {
-//                        boolean bValue = (Boolean) value;
-//                        textValue = "1";
-//                        if (!bValue) {
-//                            textValue = "0";
-//                        }
-//                    } else if (value instanceof Date) {
-//                        Date date = (Date) value;
-//                        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-//                        textValue = sdf.format(date);
-//                    } else if (value instanceof byte[]) {
-//                        // 有图片时，设置行高为60px;
-//                        row.setHeightInPoints(60);
-//                        // 设置图片所在列宽度为80px,注意这里单位的一个换算
-//                        sheet.setColumnWidth(i, (short) (35.7 * 80));
-//                        byte[] bsValue = (byte[]) value;
-//                        HSSFClientAnchor anchor = new HSSFClientAnchor(0, 0,
-//                                1023, 255, (short) 6, index, (short) 6, index);
-//                        anchor.setAnchorType(2);
-//                        patriarch.createPicture(anchor, workbook.addPicture(
-//                                bsValue, HSSFWorkbook.PICTURE_TYPE_JPEG));
-//                    } else {
-//                        // 其它数据类型都当作字符串简单处理
-//                        textValue = value.toString();
-//                    }
-//                    HSSFRichTextString richString = new HSSFRichTextString(
-//                            textValue);
-//                    richString.applyFont(font3);
-//                    cell.setCellValue(richString);
-//                } catch (SecurityException e) {
-//                    e.printStackTrace();
-//                } catch (NoSuchMethodException e) {
-//                    e.printStackTrace();
-//                } catch (IllegalArgumentException e) {
-//                    e.printStackTrace();
-//                } catch (IllegalAccessException e) {
-//                    e.printStackTrace();
-//                } catch (InvocationTargetException e) {
-//                    e.printStackTrace();
-//                } finally {
-//                    // 清理资源
-//                }
+//
+//
+//                HSSFRichTextString richString = new HSSFRichTextString(
+//                        String.valueOf(next1));
+//                richString.applyFont(font3);
+//                cell.setCellValue(richString);
 //            }
 //        }
 //        return workbook;

@@ -27,5 +27,6 @@ public class RegexTest {
     public static void main(String[] args) {
         System.out.println(method1("13582037548"));
         System.out.println(method1("10000000000"));
+        System.out.println(RegexTest.class);
     }
 }

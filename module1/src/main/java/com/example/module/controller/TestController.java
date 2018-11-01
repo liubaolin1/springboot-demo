@@ -1,7 +1,5 @@
 package com.example.module.controller;
 
-//import com.example.module.excel.ExcelConstants;
-//import com.example.module.excel.ExportExcelUtil;
 import com.example.module.excel.Person;
 import com.example.module.service.BidDocDownloadService;
 import com.example.utils.common.ActionResult;
@@ -10,7 +8,6 @@ import com.example.utils.common.ResultEnum;
 import com.example.utils.redis.RedisBean;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-//import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,9 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-//import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.logging.Logger;
 
 import static com.example.utils.common.Print.println;
@@ -57,6 +52,29 @@ public class TestController {
                 getPersonList());
         return result;
     }
+
+    @ApiOperation(notes = "测试方法1111",value = "111")
+    @RequestMapping(value = "/method1111",method = RequestMethod.GET)
+    public Object method1111(Integer param){
+        logger.info("测试打印日志");
+        List list = new ArrayList();
+        Map map = new HashMap();
+        map.put("2016",1);
+        Map map2 = new HashMap();
+        map2.put("2017",2);
+        list.add(map);
+        list.add(map2);
+        return list;
+    }
+
+    private List getRespParam(){
+
+
+
+        return null;
+    }
+
+
 
     /**
      * 查询mysql redis
@@ -154,5 +172,18 @@ public class TestController {
         println(file.getName(),file.getOriginalFilename(),file.getContentType());
         return null;
     }
+
+    public static void sortDesc(String[] arr) {
+        int start = 0;
+
+        for(int end = arr.length - 1; start < end; --end) {
+            String temp = arr[end];
+            arr[end] = arr[start];
+            arr[start] = temp;
+            ++start;
+        }
+
+    }
+
 
 }
